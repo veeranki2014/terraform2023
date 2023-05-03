@@ -73,3 +73,9 @@ resource "aws_nat_gateway" "auto_nat" {
     depends_on = [ aws_internet_gateway.automated_IGW ]
   
 }
+
+resource "aws_route_table_association" "public" {
+    subnet_id = aws_subnet.public.id
+    route_table_id = aws_route_table.public_rt.id
+  
+}
