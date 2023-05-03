@@ -3,6 +3,5 @@ resource "aws_vpc" "main" {
     instance_tenancy = "default"
     tags = {
         Name = "automated-vpc"
-    }
-  
+    }  
 }
