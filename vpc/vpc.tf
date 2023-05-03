@@ -58,3 +58,14 @@ resource "aws_eip" "auto_eip" {
     }
 }
 
+resource "aws_nat_gateway" "auto_nat" {
+    allocation_id = aws_eip.auto_eip.id
+    subnet_id = aws_subnet.public.id
+
+    tags = {
+        Name = "automated_NAT"
+    }
+
+    depends_on = [ aws_internet_gateway.automated_IGW ]
+  
+}
