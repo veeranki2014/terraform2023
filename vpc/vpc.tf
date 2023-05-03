@@ -44,3 +44,14 @@ resource "aws_route_table" "public_rt" {
   
 }
 
+# resource "aws_route_table" "private_rit" {
+#     vpc_id = aws_vpc.main.id
+#     route{
+#         cidr_block = ""
+#     }
+  
+# }
+
+resource "aws_eip" "auto_eip" {    
+}
+
