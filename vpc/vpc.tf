@@ -53,5 +53,8 @@ resource "aws_route_table" "public_rt" {
 # }
 
 resource "aws_eip" "auto_eip" {    
+    tags = {
+        Name = "auto_eip"
+    }
 }
 
