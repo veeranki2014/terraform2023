@@ -10,7 +10,7 @@ terraform {
     bucket = "mashtfstat-s3"
     key = "timing"
     region = "us-east-1" 
-    dynamodb_table = "mashtfstat-s3-look"   
+    dynamodb_table = "mashtfstat-s3-lock"   
   }
 }
 
