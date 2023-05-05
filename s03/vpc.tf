@@ -8,7 +8,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "public" {
     vpc_id = var.public_subnet_cidr
-    cidr_block = "10.0.1.0/24"
+    cidr_block = var.public_subnet_cidr
     tags = {
       Name = var.tags
     }  
