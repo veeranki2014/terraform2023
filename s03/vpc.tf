@@ -1,5 +1,5 @@
 resource "aws_vpc" "main" {
-    cidr_block = "10.0.0.0/16"
+    cidr_block = var.cidr
     instance_tenancy = "default"
     tags = {
         Name = "automated-vpc"
@@ -56,23 +56,23 @@ resource "aws_route_table" "private_rt" {
   
 }
 
-resource "aws_eip" "auto_eip" {    
-    tags = {
-        Name = "auto_eip"
-    }
-}
+# resource "aws_eip" "auto_eip" {    
+#     tags = {
+#         Name = "auto_eip"
+#     }
+# }
 
-resource "aws_nat_gateway" "auto_nat" {
-    allocation_id = aws_eip.auto_eip.id
-    subnet_id = aws_subnet.public.id
+# resource "aws_nat_gateway" "auto_nat" {
+#     allocation_id = aws_eip.auto_eip.id
+#     subnet_id = aws_subnet.public.id
 
-    tags = {
-        Name = "automated_NAT"
-    }
+#     tags = {
+#         Name = "automated_NAT"
+#     }
 
-    depends_on = [ aws_internet_gateway.automated_IGW ]
+#     depends_on = [ aws_internet_gateway.automated_IGW ]
   
-}
+# }
 
 resource "aws_route_table_association" "public" {
     subnet_id = aws_subnet.public.id
